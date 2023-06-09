@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import FilmsList from './components/FilmsList';
 
 
 class App extends React.Component {
@@ -34,7 +33,6 @@ class App extends React.Component {
         </ul>
         <button type='Submit'>Add</button>
         </form>
-        <FilmsList />
       </div>
     );
   }
