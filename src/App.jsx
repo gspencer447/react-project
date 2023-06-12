@@ -3,7 +3,9 @@ import { useState } from 'react';
 import './App.css';
 import React from 'react';
 import FilmsList from './components/FilmsList';
-
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { HomePage } from './Pages/films.page';
+import { FilmsPage } from './Pages';
 
 function App(props) {
   const [list, setList] = useState(["ready", "set", "Go!"]);
@@ -16,9 +18,24 @@ function App(props) {
     // setList(["ready", "set", "Go!", text])
   }
 
-
     return (
-      <div className='App'>
+      <BrowserRouter>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="films">Films</NavLink>
+          </li>
+        </ul>
+      </nav>
+        <Routes>
+          <Route path="/" />
+          <Route path="films" />
+          </Routes>    
+          </BrowserRouter>
+      /* /* <div className='App'>
         <h1>Hello Mars!</h1>
         <FilmsList />
         <form action="" onSubmit ={handleSubmit}>
@@ -37,8 +54,8 @@ function App(props) {
         </ul>
         <button type='Submit'>Add</button>
         </form>
-      </div>
-    );
+      // </div> */
+    )
   }
 
 export default App;
