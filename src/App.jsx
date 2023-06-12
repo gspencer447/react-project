@@ -5,7 +5,7 @@ import React from 'react';
 import FilmsList from './components/FilmsList';
 
 
-function App() {
+function App(props) {
   const [list, setList] = useState(["ready", "set", "Go!"]);
   const [text, setText] = useState("");
 
