@@ -1,42 +1,44 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 import React from 'react';
 import FilmsList from './components/FilmsList';
 
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      list: ["ready", "set", "Go!"],
-      text: ""
-    }
-    this.onSubmit = this.onSubmit.bind(this);
-    
-    
+function App() {
+  const [list, setList] = useState(["ready", "set", "Go!"]);
+  const [text, setText] = useState("");
+
+  function handleSubmit(event){
+    event.preventDefault();
+
+    setList([...list, text])
+    // setList(["ready", "set", "Go!", text])
   }
-  onSubmit = (event) => {
-    event.preventDefault()
-    let newList = [...this.state.list, this.state.text]
-    this.setState({list: newList, text: ""})
-  }
-  render() {
+
+
     return (
       <div className='App'>
-        <h1>Hello World</h1>
-        <form action="" onSubmit ={this.onSubmit}>
-          <input type="text" value = {this.state.text}
-          onChange = {(e)=> this.setState({text: e.target.value})}/>
+        <h1>Hello Mars!</h1>
+        <FilmsList />
+        <form action="" onSubmit ={handleSubmit}>
+          <input 
+          type="text" 
+          name="text"
+          id="text"
+          value = {text}
+          onChange = {(e)=> 
+          setText(e.target.value)
+          }/>
         <ul>
-          {this.state.list.map((task, id)=> {
+          {list.map((task, id)=> {
             return <li key={id + task}>{task}</li>
           })}
         </ul>
         <button type='Submit'>Add</button>
         </form>
-        <FilmsList />
       </div>
     );
   }
-}
+
 export default App;
