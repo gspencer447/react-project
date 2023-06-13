@@ -4,7 +4,7 @@ import './App.css';
 import React from 'react';
 import FilmsList from './components/FilmsList';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { HomePage } from './Pages/films.page';
+import { HomePage } from './Pages';
 import { FilmsPage } from './Pages';
 
 function App(props) {
@@ -31,8 +31,8 @@ function App(props) {
         </ul>
       </nav>
         <Routes>
-          <Route path="/" />
-          <Route path="films" />
+          <Route path="/"element={<HomePage />} />
+          <Route path="films"element={<FilmsPage />} />
           </Routes>    
           </BrowserRouter>
       /* /* <div className='App'>
