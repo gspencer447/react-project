@@ -6,14 +6,15 @@ export default function SingleFilmPage () {
     const { id } = useParams();
 
     function getFilm(){
+      console.log("Hello!")
         fetch(`https://studioghibliapi-d6fc8.web.app/films/${id}`)
-        .then((response)=> response.json()
+        .then((response)=> response.json())
         .then((item)=> {
             console.log(item)
             setItem((item))
-        .catch((err) => console.error(err))
-        })
-        )
+          })
+          .catch((err) => console.error(err))
+        
     }
 
     useEffect(() => {

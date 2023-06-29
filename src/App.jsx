@@ -6,6 +6,7 @@ import FilmsList from './components/FilmsList';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { HomePage } from './Pages';
 import { FilmsPage } from './Pages';
+import { SingleFilmPage } from './Pages';
 
 function App(props) {
   const [list, setList] = useState(["ready", "set", "Go!"]);
@@ -33,6 +34,7 @@ function App(props) {
         <Routes>
           <Route path="/"element={<HomePage />} />
           <Route path="films"element={<FilmsPage />} />
+          <Route path="films/film/:id" element={<SingleFilmPage />} /> 
           </Routes>    
           </BrowserRouter>
       /* /* <div className='App'>
